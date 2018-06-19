@@ -26,7 +26,7 @@ steps{
       ssh -o StrictHostKeyChecking=no -t bouser@104.209.151.90 /bin/bash "
       /usr/sap/BIP/sap_bobj/lcm_cli.sh -lcmproperty /usr/sap/BIP/sap_bobj/export.properties
       build_artifact=`grep exportLocation export.properties | cut -d '/' -f6`
-      scp /usr/sap/BIP/sap_bobj/${build_artifact} bouser@104.209.151.216:/usr/sap/BIP/sap_bobj/
+      scp /usr/sap/BIP/sap_bobj/\${build_artifact} bouser@104.209.151.216:/usr/sap/BIP/sap_bobj/
 	   "
 	  '''
 
