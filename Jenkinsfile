@@ -9,7 +9,7 @@ steps{
 
 	checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/arindams621/SAP_Reports.git']]])
 	
-	sh 'chmod +x ${WORKSPACE}prep.sh'
+	sh 'chmod +x ${WORKSPACE}/prep.sh'
 	sh '${WORKSPACE}/prep.sh export.properties promote.properties'
 	sh 'scp -pr ${WORKSPACE}/export.properties bouser@104.209.151.90:/usr/sap/BIP/sap_bobj/'
 	sh 'scp -pr ${WORKSPACE}/promote.properties bouser@104.209.151.216:/usr/sap/BIP/sap_bobj/'
